@@ -1,4 +1,4 @@
-package EpamTest;
+
 
 /**
  * Author: Aleksey Alekseenko
@@ -12,7 +12,7 @@ public class IPv4 {
      * @param secondIPv4 String value
      * @return String relation
      */
-    public String relation(String firstIPv4, String secondIPv4) {
+    public static String relation(String firstIPv4, String secondIPv4) {
         String firstIP = firstIPv4.split("\\/")[0];
         String secondIP = secondIPv4.split("\\/")[0];
         int firstPrefix = Integer.parseInt(firstIPv4.split("\\/")[1]);
@@ -21,7 +21,7 @@ public class IPv4 {
         int secondIntIp = getIntFromIp(secondIP);
         int n = Math.min(firstPrefix, secondPrefix);
 
-        if (firstIntIP == secondIntIp) {
+        if (firstIntIP >>> (32 - n) == secondIntIp >>> (32 - n)) {
             return "EQUALS";
         } else if (firstPrefix > secondPrefix & firstIntIP >>> (32 - n) == secondIntIp >>> (32 - n)) {
             return "SUBSET";
@@ -37,7 +37,7 @@ public class IPv4 {
      * @param stringIp
      * @return int value
      */
-    private int getIntFromIp(String stringIp) {
+    private static int getIntFromIp(String stringIp) {
         int[] ip = new int[4];
         String[] parts = stringIp.split("\\.");
         for (int i = 0; i < 4; i++) {

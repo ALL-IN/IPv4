@@ -4,9 +4,6 @@
  * Date: 18.10.13
  */
 public class IPv4 {
-    public static void main(String[] args) {
-        System.out.println(IPv4.relation("129.12.12.12/0", "123.12.12.12/1"));
-    }
     /**
      * Return relation from two IPv4s
      *

@@ -19,6 +19,7 @@ public class IPAddressValidator{
                     "/(0?[0-9]|[12][0-9]|3[012])$";
 
     public IPAddressValidator(){
+        int newValue = 1;
         pattern = Pattern.compile(IPADDRESS_PATTERN);
     }
 
